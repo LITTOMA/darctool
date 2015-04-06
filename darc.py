@@ -51,6 +51,11 @@ def getnameinpath(pathlist):
                 return namelist
 
 def unpack(filename):
+                a = open(filename,'rb')
+                b = a.read(1)
+                if b=='\x11'or b=='\x40':
+                                os.system('lzx -d '+filename)
+                a.close()
                 infile = open(filename,'rb')
                 filesize=getfilesize(filename)
                 
@@ -206,8 +211,16 @@ def packup(dirname):
                 darc.write(struct.pack('I',filetablelength))
                 darc.write(struct.pack('I',filedataoffset))
                 darc.close()
+                if '-evb' in sys.argv:
+                                os.system('lzx -evb '+dirname+'.darc')
+                elif '-ewb' in sys.argv:
+                                os.system('lzx -ewb '+dirname+'.darc')
+                elif '-evl' in sys.argv:
+                                os.system('lzx -evl '+dirname+'.darc')
+                elif '-ewl' in sys.argv:
+                                os.system('lzx -ewl '+dirname+'.darc')
 
-darchelp = ['Usage: [option] [object]\n    or [option] --d [Directory]\n[options:]',' -u        unpack',' -p        packup','--d        Directory']
+darchelp = ['Usage: [option] [object]\n    or [option] --d [Directory]\n\nOptions:','  -u ..... unpack','  -p ..... packup','  --d .... Directory','  -evb ... VRAM compatible, big-endian (LZ11)','  -ewb ... WRAM compatbile, big-endian (LZ11)','  -evl ... VRAM compatible, little-endian (LZ40)','  -ewl ... WRAM compatbile, little-endian (LZ40)']
 if '-u' in sys.argv:
                 if '--d' in sys.argv:
                                 dirname = sys.argv[sys.argv.index('--d')+1]
@@ -219,8 +232,8 @@ if '-u' in sys.argv:
                                 unpack(darcfile)
 elif '-p' in sys.argv:
                 if '--d' in sys.argv:
-                                dirname = sys.argv[sys.argv.index('--d')+1]
-                                os.chdir(dirname)
+                                workdir = sys.argv[sys.argv.index('--d')+1]
+                                os.chdir(workdir)
                                 nlist = os.listdir(os.getcwd())
                                 for name in nlist:
                                                 if os.path.isdir(name):
@@ -228,40 +241,15 @@ elif '-p' in sys.argv:
                 else:
                                 dirname = sys.argv[sys.argv.index('-p')+1]
                                 packup(dirname)
+elif len(sys.argv)==1:
+                for sentence in darchelp:
+                                print sentence
+                exit
 else :
                 for argv in sys.argv:
-                                if argv==sys.argv[0]:
-                                                for sentence in darchelp:
-                                                                print sentence
-                                elif os.path.exists(argv):
+                                if argv!=sys.argv[0] and os.path.exists(argv):
                                                 if os.path.isfile(argv):
                                                                 unpack(argv)
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
