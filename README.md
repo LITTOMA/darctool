@@ -5,9 +5,8 @@ Unpack/repack DARC files for Nintendo3DS.
 By using CUE's lzx tool, you can compress/decompress darc files now.
 
 # Usage
-darc.py [option] [object] ([-evb/-ewb/-evl/-ewl])</br>  
-darc.py [option] --d [directory] ([-evb/-ewb/-evl/-ewl])
-
+darc.py [option] <object> ([-evb/-ewb/-evl/-ewl])</br>  
+darc.py [option] --d <directory> ([-evb/-ewb/-evl/-ewl])
 ### options:
 * -u........Unpack</br>  
 * -p........Packup</br>  
