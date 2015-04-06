@@ -1,10 +1,15 @@
 *.darc
+*.arc
 *.bin
 *.bclim
 *.bclyt
 *.bclan
 *.bcfnt
 root/
+try.py
+anim/
+blyt/
+timg/
 
 
 # Windows image file caches
