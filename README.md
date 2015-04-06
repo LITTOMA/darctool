@@ -21,8 +21,8 @@ There is an example:
 ![example](http://imglf1.ph.126.net/AmNtRyKlwlwB6SGC60Y-HA==/2198601043187989225.jpg)
 
 ### drag & drop:</br>
-You can drag & drop darc files to unpack. </br>
-To unpack compressed files by drag & drop, you should place lzx.exe into C:/Windows/</br>
+You can drag & drop darc files to unpack. </br>  
+To unpack compressed files by drag & drop, you should place lzx.exe into C:/Windows/</br>  
 It dosen't support pack up for now, you must use -p command.
 
 # Notice
