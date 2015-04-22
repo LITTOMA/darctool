@@ -5,8 +5,10 @@
 *.bclyt
 *.bclan
 *.bcfnt
+bat.bat
 root/
 try.py
+dinject.py
 anim/
 blyt/
 timg/
