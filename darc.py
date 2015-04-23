@@ -149,7 +149,10 @@ def unpack(filename):
 
                 i = 0
                 index = 0
-                mainpath = rawname+'\\'
+                if '-o' in sys.argv:
+                                mainpath = sys.argv[sys.argv.index('-o')+1]+'\\'
+                else:
+                                mainpath = rawname+'\\'
                 while i<len(nameposlist):
                                 if IsDir(nameposlist[i]):
                                                 if dataposlist[i]>index:
@@ -362,7 +365,11 @@ elif '-i' in sys.argv:
                 darcname = sys.argv[sys.argv.index('-i')+1]
                 darc = open(darcname,'rb')
                 if '-o' in sys.argv:
-                                outfilename = sys.argv[sys.argv.index('-o')+1]
+                                if sys.argv[sys.argv.index('-o')+1]==darcname:
+                                                print 'Input name is same as orign name!'
+                                                exit
+                                else:
+                                                outfilename = sys.argv[sys.argv.index('-o')+1]
                 else:
                                 outfilename = 'new_'+darcname
                 outfile = open(outfilename,'wb+')
