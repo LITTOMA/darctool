@@ -2,7 +2,7 @@
 Unpack/repack DARC files for Nintendo3DS
 
 #Platform
-Python 2.7
+Python 2.7</br>
 Compression only on WindowsXP+
 
 # Update
