@@ -328,7 +328,7 @@ def inject(darcname,iname,outfile):
                 darcd.close()
                 infile.close()
 
-darchelp = ['Usage: [option] [object]\n\nOptions:','  -u [darc file] ........... unpack darcfile','  -i [darc file] ........... inject files to specified darc file','  -p [directory] ........... packup specified directory','  unessential option:\n   -o [filename] ........... set output file name','   -d [directory] .......... set work directory','   compression:\n   -evb ... VRAM compatible, big-endian (LZ11)','   -ewb ... WRAM compatbile, big-endian (LZ11)','   -evl ... VRAM compatible, little-endian (LZ40)','   -ewl ... WRAM compatbile, little-endian (LZ40)']
+darchelp = ['Usage: [option] [object]\n\nOptions:','  -u [darc file] ........... unpack darcfile','  -i [darc file] ........... inject files to specified darc file','  -p [directory] ........... packup specified directory','  unessential option:\n   -o [file name] ........... set output file name','   -d [directory] .......... set work directory','   compression:\n   -evb ... VRAM compatible, big-endian (LZ11)','   -ewb ... WRAM compatbile, big-endian (LZ11)','   -evl ... VRAM compatible, little-endian (LZ40)','   -ewl ... WRAM compatbile, little-endian (LZ40)']
 if '-u' in sys.argv:
                 if '-d' in sys.argv:
                                 dirname = sys.argv[sys.argv.index('-d')+1]
