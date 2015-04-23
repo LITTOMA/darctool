@@ -359,7 +359,7 @@ elif '-p' in sys.argv:
                                 else:
                                                 dirname = sys.argv[sys.argv.index('-p')+1]
                                                 packup(dirname)
-                print 'done!'
+                                print 'done!'
 
 elif '-i' in sys.argv:
                 darcname = sys.argv[sys.argv.index('-i')+1]
