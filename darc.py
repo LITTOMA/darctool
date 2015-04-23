@@ -112,7 +112,8 @@ def unpack(filename):
                 datalenlist = []
                 namelist = []
                 rawname = os.path.splitext(filename)[0]
-                
+                if rawname==filename:
+                                rawname = '_'+rawname
                 i = 0
                 infile.seek(ftablepos)
                 while i<ftablelength:
