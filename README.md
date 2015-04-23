@@ -1,8 +1,12 @@
 # 3DS DARCTool
-Unpack/repack DARC files for Nintendo3DS.
+Unpack/repack DARC files for Nintendo3DS
+
+#Platform
+Python 2.7
+Compression only on WindowsXP+
 
 # Update
-By using CUE's lzx tool, you can compress/decompress darc files now.
+Add inject feature.
 
 # Usage
 darc.py [option] 'object'</br>  
