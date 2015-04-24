@@ -24,7 +24,7 @@
 #Files in darc store with padding.
 #The darc file compress with LZ11 in some cases.
 
-import struct,os,codecs,fnmatch,sys
+import os,codecs,sys,struct
 
 def getfilesize(filename):
                 file = open(filename,'rb')
@@ -91,6 +91,7 @@ def unpack(filename):
                 b = a.read(1)
                 if b=='\x11'or b=='\x40':
                                 os.system('lzx -d '+filename)
+                                print ''
                 a.close()
                 infile = open(filename,'rb')
                 filesize=getfilesize(filename)
@@ -394,7 +395,6 @@ elif '-i' in sys.argv:
 elif len(sys.argv)==1 or '-h' in sys.argv:
                 for sentence in darchelp:
                                 print sentence
-                exit
 else :
                 for argv in sys.argv:
                                 if argv!=sys.argv[0] and os.path.exists(argv):

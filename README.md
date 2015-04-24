@@ -10,7 +10,7 @@ Add inject feature.
 
 # Usage
 darc.py [option] 'object'</br>  
-darc.py [option] --d 'directory'
+darc.py [option] -d 'directory'
 ### options:
 * -u [darc file] ........... unpack darcfile</br>
 * -i [orign darc file] ..... inject files to specified darc file</br>
@@ -26,7 +26,7 @@ darc.py [option] --d 'directory'
 * -evl ...... VRAM compatible, little-endian (LZ40)</br>
 * -ewl ...... WRAM compatbile, little-endian (LZ40)
 
-### How to use "--d" option
+### How to use "-d" option
 There is an example:
 ![example](http://imglf1.ph.126.net/AmNtRyKlwlwB6SGC60Y-HA==/2198601043187989225.jpg)
 
