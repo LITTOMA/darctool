@@ -1,40 +1,28 @@
-# 3DS DARCTool
-Unpack/repack DARC files for Nintendo3DS
+# Nintendo darc tool
+![Python](https://img.shields.io/badge/Python-2.7-blue)
 
-#Platform
-Python 2.7</br>
-Compression only on WindowsXP+
+The "darc" file format was found in the early version of Nintendo Ware for CTR (nw4c).
 
-# Update
-Add inject feature.
+This tool can help you extract existing darc files and create new darc files.
 
-# Usage
-darc.py [option] 'object'</br>  
-darc.py [option] -d 'directory'
-### options:
-* -u [darc file] ........... unpack darcfile</br>
-* -i [orign darc file] ..... inject files to specified darc file</br>
-* -p [directory] ........... packup specified directory</br>
+# Usage samples
+Extract "input.arc" to "output" folder:
 
-####unessential option:
-* -o [filename] ............ set output file name</br>
-* -d [directory] ........... set work directory</br>
+``` shell
+python darc.py -xf input.arc -d output
+```
 
-####compression:
-* -evb ...... VRAM compatible, big-endian (LZ11)</br>
-* -ewb ...... WRAM compatbile, big-endian (LZ11)</br>
-* -evl ...... VRAM compatible, little-endian (LZ40)</br>
-* -ewl ...... WRAM compatbile, little-endian (LZ40)
+Change directory to "input/" and add "files" folder recursively to "output.arc":
+``` shell
+python darc.py -cf output.arc -d input files
+```
 
-### How to use "-d" option
-There is an example:
-![example](http://imglf1.ph.126.net/AmNtRyKlwlwB6SGC60Y-HA==/2198601043187989225.jpg)
+Create darc with all file data align to 32:
+``` shell
+python darc.py -c -a 0x20 -f output.arc -d input files
+```
 
-### drag & drop:</br>
-You can drag & drop darc files to unpack. </br>  
-To unpack compressed files by drag & drop, you should place lzx.exe into C:/Windows/</br>  
-It dosen't support pack up for now, you must use -p command.
-
-# Notice
-This tool hasn't been tested completely, so it may not work in some cases,</br>  
-please tell me while errors occur.
+Create darc with *.bcfnt files data align to 128, other files align to 32:
+``` shell
+python darc.py -c -a 0x20 -t *.bcfnt:0x80 -f output.arc -d input files
+```
