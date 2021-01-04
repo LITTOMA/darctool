@@ -466,7 +466,7 @@ def main():
     endianess = {'big': '>', 'little': '<'}
     if args.create:
         darc = Darc.fromDir(
-            args.dir, endianess[args.endianess], ['.'] if not args.entry else args.entry, args.exclude)
+            args.dir, endianess[args.endianess], os.listdir(args.dir) if not args.entry else args.entry, args.exclude)
         darc.defaultalignment = int(args.align, 0)
         darc.typealignment = parsetypealignments(args.typealign)
         darc.save(args.file)
